@@ -1,10 +1,9 @@
 import hashlib
-import datetime
+
 
 class ZirconBlock:
     def __init__(self, previous_block_hash, transaction_list):
         self.previous_block_hash = previous_block_hash
-        self.timestap = datetime.datetime.now()
         self.transaction_list = transaction_list
         self.data = "-".join(transaction_list) + "-" + previous_block_hash
         self.hash = hashlib.sha256(self.data.encode()).hexdigest()
